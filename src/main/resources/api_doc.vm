@@ -1,0 +1,54 @@
+$!{H1} $!{docTag.name}
+
+$!{docTag.description}
+
+#foreach($httpApi in $docTag.httpApiList)
+
+$!{H2} ${velocityCount} $!{httpApi.summary}
+
+$!{H3} ${velocityCount}.1 功能描述
+
+$!{httpApi.description}
+
+$!{H3} ${velocityCount}.2 请求说明
+
+> 请求方式：$!{httpApi.requestMethod}
+
+> 请求URL ：$!{httpApi.path}
+
+
+$!{H3} ${velocityCount}.3 请求参数
+#if($!{httpApi.parameterList})
+字段       |字段类型       |是否必填    | 默认值   |字段说明
+------------|-----------|-----------|-----------|-----------
+#foreach($parameter in $httpApi.parameterList)
+$!{parameter.name}       |  $!{parameter.format}  |  $!{parameter.required}   |  $!{parameter.defaultValue}       | $!{parameter.description}
+#end
+#end
+
+$!{H3} ${velocityCount}.4 返回结果
+```json
+{
+"data": {
+"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2FsZS1hcGkuZGV2L2xvZ2luIiwiaWF0IjoxNDkxNTMyOTI4LCJleHAiOjE0OTIyNTI5MjgsIm5iZiI6MTQ5MTUzMjkyOCwianRpIjoiN1hCUXdwN1FHZmxUdHVVQiIsInV1aWQiOiI1MDZjYWY3MCJ9.FyyXagHtBfDBtMJZPV_hm2q6CVULpY63JPDGDHXc"
+},
+"code": "200",
+"msg": "SUCCESS"
+}
+```
+$!{H3} ${velocityCount}.5 返回参数
+字段       |字段类型       |字段说明
+------------|-----------|-----------
+token       |string        |token值
+
+$!{H3} ${velocityCount}.6 错误状态码
+状态码       |说明
+------------|-----------
+3001       |其他认证错误信息！
+3002       |用户不存在！
+3003       |用户名或密码有误！
+
+
+#end
+
+
