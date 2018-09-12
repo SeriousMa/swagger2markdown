@@ -25,10 +25,11 @@
             <artifactId>swagger-models</artifactId>
             <version>1.5.21</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.swagger/swagger-parser -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-parser</artifactId>
-            <version>1.0.39-SNAPSHOT</version>
+            <version>1.0.38</version>
         </dependency>
 
     </dependencies>
